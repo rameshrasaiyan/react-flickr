@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import API_KEY from '../config';
 import './Flickr.css';
+
 class Flickr extends Component{
 
     constructor(props) {
@@ -12,7 +14,7 @@ class Flickr extends Component{
     }
 
     componentDidMount() {
-        axios.get('/?method=flickr.photos.getRecent&api_key=90590189fc556df279b60c61fb048932&format=json&nojsoncallback=1')
+        axios.get('/?method=flickr.photos.getRecent&api_key='+ {API_KEY} +'&format=json&nojsoncallback=1')
             .then(response => {
                 this.setState({
                     flickrPics: response.data.photos.photo
